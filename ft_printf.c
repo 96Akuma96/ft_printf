@@ -6,7 +6,7 @@
 /*   By: zben-ham <zben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 23:07:34 by zben-ham          #+#    #+#             */
-/*   Updated: 2026/11/15 00:33:18 by zben-ham         ###   ########.fr       */
+/*   Updated: 2026/11/15 21:05:08 by zben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,10 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
-		{
-			va_end(args);
-			return (count);
-		}
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				break ;
 			i++;
 			count += ft_convert(format[i], &args);
 		}

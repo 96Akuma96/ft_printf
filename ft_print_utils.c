@@ -6,7 +6,7 @@
 /*   By: zben-ham <zben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 23:06:41 by zben-ham          #+#    #+#             */
-/*   Updated: 2026/11/15 00:18:26 by zben-ham         ###   ########.fr       */
+/*   Updated: 2026/11/15 21:09:44 by zben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *s)
 {
-	int	i;
+	size_t	i;
 
 	if (!s)
 		return (write(1, "(null)", 6));
@@ -29,7 +29,9 @@ int	ft_putstr(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	return (i);
+	if (i > 2147483647)
+		return (-1);
+	return ((int)i);
 }
 
 int	ft_putnbr(long n)
